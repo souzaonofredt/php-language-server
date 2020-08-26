@@ -9,7 +9,7 @@ use LanguageServer\Index\StubsIndex;
 use phpDocumentor\Reflection\DocBlockFactory;
 use Webmozart\PathUtil\Path;
 use Sabre\Uri;
-use function Sabre\Event\coroutine;
+use Sabre\Event;
 use Microsoft\PhpParser;
 
 foreach ([__DIR__ . '/../../../autoload.php', __DIR__ . '/../autoload.php', __DIR__ . '/../vendor/autoload.php'] as $file) {
@@ -23,7 +23,7 @@ class ComposerScripts
 {
     public static function parseStubs()
     {
-        coroutine(function () {
+        Event\coroutine(function () {
 
             $index = new StubsIndex;
 
